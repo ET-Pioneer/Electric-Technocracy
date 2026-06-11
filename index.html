@@ -1,0 +1,2447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electric Technocracy — ASI · UBI · DDD · Juridical Singularity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+/* ================================================
+   ELECTRIC TECHNOCRACY — BLOGGER LANDING PAGE
+   Design: Retro-Futurist · Serious · No Hacker Aesthetic
+   ================================================ */
+
+:root {
+  --bg-deep:       #05060d;
+  --bg-primary:    #080b14;
+  --bg-secondary:  #0b0f1c;
+  --bg-card:       #0e1425;
+  --bg-card-h:     #131a30;
+  --accent-cyan:   #00cff5;
+  --accent-teal:   #00b096;
+  --accent-gold:   #e8a020;
+  --accent-violet: #8a5cc8;
+  --accent-green:  #28b485;
+  --accent-red:    #c0392b;
+  --text-bright:   #f0f4f8;
+  --text-primary:  #d0dce8;
+  --text-secondary:#8090a8;
+  --text-muted:    #3a5068;
+  --border-c:      rgba(0,207,245,0.18);
+  --border-g:      rgba(232,160,32,0.2);
+  --glow-c:  0 0 28px rgba(0,207,245,0.35), 0 0 56px rgba(0,207,245,0.12);
+  --glow-g:  0 0 28px rgba(232,160,32,0.35), 0 0 56px rgba(232,160,32,0.12);
+  --glow-t:  0 0 20px rgba(0,176,150,0.3);
+  --tr-fast: 0.15s ease;
+  --tr-med:  0.3s ease;
+  --tr-slow: 0.6s ease;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Exo 2',sans-serif;
+  background:var(--bg-deep);
+  color:var(--text-primary);
+  line-height:1.8;
+  font-weight:300;
+  overflow-x:hidden;
+}
+
+/* Scanline overlay */
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    transparent 0,transparent 3px,
+    rgba(0,8,20,0.12) 3px,rgba(0,8,20,0.12) 4px
+  );
+  pointer-events:none;
+  z-index:9000;
+}
+
+/* ── TYPOGRAPHY ── */
+h1,h2,h3,h4 {
+  font-family:'Orbitron',sans-serif;
+  letter-spacing:.05em;
+  line-height:1.2;
+}
+h1 { font-size:clamp(2rem,5vw,4.2rem); font-weight:900; }
+h2 { font-size:clamp(1.5rem,3vw,2.6rem); font-weight:700; }
+h3 { font-size:clamp(1.1rem,2vw,1.7rem); font-weight:600; }
+h4 { font-size:clamp(.95rem,1.5vw,1.25rem); font-weight:500; }
+
+p { margin-bottom:1.1em; font-size:1.04rem; font-weight:300; }
+p:last-child { margin-bottom:0; }
+
+strong { color:var(--accent-cyan); font-weight:700; }
+em     { color:var(--accent-gold); font-style:italic; }
+a      { color:var(--accent-cyan); text-decoration:none; transition:color var(--tr-fast),text-shadow var(--tr-fast); }
+a:hover { color:#fff; text-shadow:var(--glow-c); }
+
+/* ── LAYOUT ── */
+.container      { max-width:1160px; margin:0 auto; padding:0 2rem; }
+.container-wide { max-width:1380px; margin:0 auto; padding:0 2rem; }
+section { padding:5rem 0; position:relative; }
+
+/* Grid background texture */
+.grid-bg::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(var(--border-c) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border-c) 1px,transparent 1px);
+  background-size:70px 70px;
+  pointer-events:none;
+  opacity:.4;
+}
+
+/* ── TICKER ── */
+.ticker-bar {
+  background:linear-gradient(90deg,var(--bg-secondary),#0a1020,var(--bg-secondary));
+  border-bottom:1px solid var(--border-c);
+  padding:.55rem 0;
+  overflow:hidden;
+  position:sticky;
+  top:0;
+  z-index:800;
+}
+.ticker-track {
+  display:flex;
+  gap:5rem;
+  animation:ticker 40s linear infinite;
+  white-space:nowrap;
+  width:max-content;
+}
+.ticker-item {
+  font-family:'Share Tech Mono',monospace;
+  font-size:.78rem;
+  color:var(--accent-cyan);
+  letter-spacing:.12em;
+  opacity:.85;
+}
+.ticker-item::before { content:'◈ '; color:var(--accent-gold); }
+@keyframes ticker {
+  0%   { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+
+/* ── HERO ── */
+.hero {
+  min-height:95vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%,rgba(0,200,255,.07) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 35% at 85% 90%,rgba(138,92,200,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 80%,rgba(0,176,150,.05) 0%,transparent 60%),
+    var(--bg-deep);
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,207,245,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,207,245,.03) 1px,transparent 1px);
+  background-size:85px 85px;
+}
+/* animated corner brackets in hero */
+.hero::after {
+  content:'';
+  position:absolute;
+  width:340px;height:340px;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(0,207,245,.06);
+  border-radius:50%;
+  animation:hero-ring 8s linear infinite;
+}
+@keyframes hero-ring {
+  0%   { transform:translate(-50%,-50%) rotate(0deg)   scale(1);   opacity:.4; }
+  50%  { opacity:.15; }
+  100% { transform:translate(-50%,-50%) rotate(360deg) scale(1.05); opacity:.4; }
+}
+
+.hero-content {
+  position:relative;
+  z-index:10;
+  max-width:920px;
+  padding:2rem;
+}
+.hero-badge {
+  display:inline-block;
+  background:rgba(0,207,245,.08);
+  border:1px solid var(--border-c);
+  color:var(--accent-cyan);
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  padding:.4rem 1.3rem;
+  margin-bottom:1.8rem;
+  text-transform:uppercase;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.hero-title {
+  color:var(--text-bright);
+  margin-bottom:.6rem;
+  text-shadow:0 0 50px rgba(0,207,245,.25);
+}
+.hero-title .line-cyan { color:var(--accent-cyan); display:block; }
+.hero-title .line-gold { color:var(--accent-gold); display:block; font-size:clamp(1.3rem,3vw,2.6rem); margin-top:.3rem; }
+.hero-subtitle {
+  font-family:'Share Tech Mono',monospace;
+  font-size:clamp(.75rem,1.5vw,.95rem);
+  color:var(--text-muted);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  margin:.8rem 0 2.2rem;
+}
+.hero-desc {
+  font-size:1.12rem;
+  color:var(--text-secondary);
+  max-width:680px;
+  margin:0 auto 2.5rem;
+  line-height:1.95;
+}
+.hero-btns {
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:3.5rem;
+}
+.hero-stats {
+  display:flex;
+  justify-content:center;
+  gap:3.5rem;
+  flex-wrap:wrap;
+  padding-top:2.5rem;
+  border-top:1px solid var(--border-c);
+}
+.h-stat-num {
+  font-family:'Orbitron',sans-serif;
+  font-size:1.9rem;
+  font-weight:900;
+  color:var(--accent-cyan);
+  display:block;
+  line-height:1.1;
+}
+.h-stat-lbl {
+  font-size:.72rem;
+  color:var(--text-muted);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin-top:.3rem;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.8rem 2rem;
+  font-family:'Orbitron',sans-serif;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:all var(--tr-med);
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  border:none;
+}
+.btn::after {
+  content:'';
+  position:absolute;
+  top:50%;left:50%;
+  width:0;height:0;
+  background:rgba(255,255,255,.1);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:width .6s ease,height .6s ease;
+}
+.btn:active::after { width:350px; height:350px; }
+.btn-cyan {
+  background:linear-gradient(135deg,var(--accent-cyan),var(--accent-teal));
+  color:var(--bg-deep);
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.btn-cyan:hover {
+  box-shadow:var(--glow-c);
+  transform:translateY(-3px);
+  color:var(--bg-deep);
+}
+.btn-outline {
+  background:transparent;
+  color:var(--accent-cyan);
+  border:1px solid var(--border-c);
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.btn-outline:hover {
+  background:rgba(0,207,245,.09);
+  box-shadow:var(--glow-c);
+  transform:translateY(-3px);
+  color:var(--accent-cyan);
+}
+.btn-gold {
+  background:linear-gradient(135deg,var(--accent-gold),#f0c060);
+  color:var(--bg-deep);
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.btn-gold:hover {
+  box-shadow:var(--glow-g);
+  transform:translateY(-3px);
+  color:var(--bg-deep);
+}
+
+/* ── SECTION HEADER ── */
+.sec-head { text-align:center; margin-bottom:3.5rem; }
+.sec-eyebrow {
+  display:inline-block;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.7rem;
+  letter-spacing:.2em;
+  color:var(--accent-gold);
+  text-transform:uppercase;
+  margin-bottom:1rem;
+  padding:.25rem .6rem;
+  border:1px solid var(--border-g);
+}
+.sec-title { color:var(--text-bright); margin-bottom:1rem; }
+.sec-title .t-cyan { color:var(--accent-cyan); }
+.sec-title .t-gold { color:var(--accent-gold); }
+.sec-line {
+  width:72px;height:3px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-teal));
+  margin:1.4rem auto 2rem;
+}
+.sec-intro {
+  max-width:700px;
+  margin:0 auto;
+  color:var(--text-secondary);
+  font-size:1.08rem;
+  line-height:1.95;
+}
+
+/* ── CARDS ── */
+.card {
+  background:var(--bg-card);
+  border:1px solid var(--border-c);
+  padding:2rem;
+  position:relative;
+  transition:all var(--tr-med);
+  cursor:default;
+}
+.card::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-teal));
+  opacity:0;
+  transition:opacity var(--tr-med);
+}
+/* Corner brackets */
+.card::after {
+  content:'';
+  position:absolute;
+  bottom:-1px;right:-1px;
+  width:18px;height:18px;
+  border-right:2px solid var(--accent-cyan);
+  border-bottom:2px solid var(--accent-cyan);
+  opacity:0;
+  transition:opacity var(--tr-med);
+}
+.card:hover {
+  background:var(--bg-card-h);
+  border-color:rgba(0,207,245,.42);
+  transform:translateY(-5px);
+  box-shadow:var(--glow-c),0 10px 40px rgba(0,0,0,.5);
+}
+.card:hover::before,.card:hover::after { opacity:1; }
+.card-icon { font-size:2.4rem; margin-bottom:1.1rem; display:block; }
+.card-title {
+  font-family:'Orbitron',sans-serif;
+  font-size:.95rem;
+  color:var(--accent-cyan);
+  margin-bottom:.9rem;
+  letter-spacing:.06em;
+}
+.card-text { color:var(--text-secondary); font-size:.93rem; line-height:1.8; }
+
+.card-gold { border-color:var(--border-g); }
+.card-gold::before { background:linear-gradient(90deg,var(--accent-gold),#f0c060); }
+.card-gold::after { border-color:var(--accent-gold); }
+.card-gold:hover { border-color:rgba(232,160,32,.45); box-shadow:var(--glow-g),0 10px 40px rgba(0,0,0,.5); }
+.card-gold .card-title { color:var(--accent-gold); }
+
+/* ── GRIDS ── */
+.g2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:1.4rem; }
+.g3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.4rem; }
+.g4 { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1.4rem; }
+
+/* ── QUOTE BOX ── */
+.quote-box {
+  background:linear-gradient(135deg,rgba(0,207,245,.05),rgba(0,176,150,.04));
+  border-left:3px solid var(--accent-cyan);
+  border:1px solid var(--border-c);
+  border-left:3px solid var(--accent-cyan);
+  padding:2rem 2.5rem;
+  margin:2.2rem 0;
+  position:relative;
+}
+.quote-box blockquote {
+  font-size:1.12rem;
+  font-style:italic;
+  color:var(--text-primary);
+  line-height:1.95;
+  font-weight:300;
+}
+.quote-box cite {
+  display:block;
+  margin-top:1rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.75rem;
+  color:var(--accent-gold);
+  letter-spacing:.1em;
+}
+
+/* ── HIGHLIGHT BOX ── */
+.hl-box {
+  background:rgba(232,160,32,.06);
+  border:1px solid var(--border-g);
+  border-left:3px solid var(--accent-gold);
+  padding:1.4rem 2rem;
+  margin:2rem 0;
+}
+.hl-box p { color:var(--text-primary); margin:0; }
+
+/* ── DEF BOX ── */
+.def-box {
+  background:rgba(0,176,150,.05);
+  border:1px solid rgba(0,176,150,.25);
+  padding:1.4rem 1.8rem;
+  margin:1.4rem 0;
+}
+.def-title {
+  font-family:'Share Tech Mono',monospace;
+  font-size:.68rem;
+  color:var(--accent-teal);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:.7rem;
+}
+.def-title::before { content:'DEF :: '; }
+.def-box p { color:var(--text-secondary); font-size:.93rem; margin:0; }
+
+/* ── TECH TAGS ── */
+.tags { display:flex; flex-wrap:wrap; gap:.45rem; margin:1.2rem 0; }
+.tag {
+  background:rgba(0,207,245,.07);
+  border:1px solid var(--border-c);
+  color:var(--accent-cyan);
+  font-family:'Share Tech Mono',monospace;
+  font-size:.65rem;
+  letter-spacing:.1em;
+  padding:.25rem .75rem;
+  text-transform:uppercase;
+  cursor:default;
+  transition:all var(--tr-fast);
+}
+.tag:hover {
+  background:rgba(0,207,245,.15);
+  border-color:var(--accent-cyan);
+  box-shadow:0 0 10px rgba(0,207,245,.25);
+}
+.tag-gold {
+  background:rgba(232,160,32,.07);
+  border-color:var(--border-g);
+  color:var(--accent-gold);
+}
+.tag-gold:hover {
+  background:rgba(232,160,32,.15);
+  border-color:var(--accent-gold);
+  box-shadow:0 0 10px rgba(232,160,32,.25);
+}
+
+/* ── PILLARS ── */
+.pillars { display:grid; grid-template-columns:repeat(3,1fr); }
+@media(max-width:900px){ .pillars { grid-template-columns:1fr; } }
+.pillar {
+  padding:3rem 2.2rem;
+  border:1px solid var(--border-c);
+  border-right:none;
+  position:relative;
+  background:var(--bg-card);
+  transition:all var(--tr-med);
+}
+.pillar:last-child { border-right:1px solid var(--border-c); }
+@media(max-width:900px){
+  .pillar { border-right:1px solid var(--border-c); border-bottom:none; }
+  .pillar:last-child { border-bottom:1px solid var(--border-c); }
+}
+.pillar::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:3px;
+  opacity:0;
+  transition:opacity var(--tr-med);
+}
+.pillar-asi::before { background:linear-gradient(90deg,var(--accent-cyan),#0088ff); }
+.pillar-ubi::before { background:linear-gradient(90deg,var(--accent-gold),#f0c060); }
+.pillar-ddd::before { background:linear-gradient(90deg,var(--accent-teal),var(--accent-cyan)); }
+.pillar:hover { background:var(--bg-card-h); transform:translateY(-5px); }
+.pillar:hover::before { opacity:1; }
+.pillar-num {
+  font-family:'Share Tech Mono',monospace;
+  font-size:.65rem;
+  letter-spacing:.2em;
+  margin-bottom:1rem;
+}
+.pillar-asi .pillar-num { color:var(--accent-cyan); }
+.pillar-ubi .pillar-num { color:var(--accent-gold); }
+.pillar-ddd .pillar-num { color:var(--accent-teal); }
+.pillar-icon { font-size:2.8rem; margin-bottom:1.4rem; display:block; }
+.pillar-name {
+  font-family:'Orbitron',sans-serif;
+  font-size:1.25rem;
+  margin-bottom:.3rem;
+}
+.pillar-asi .pillar-name { color:var(--accent-cyan); }
+.pillar-ubi .pillar-name { color:var(--accent-gold); }
+.pillar-ddd .pillar-name { color:var(--accent-teal); }
+.pillar-fullname { font-size:.82rem; color:var(--text-muted); margin-bottom:1.4rem; font-style:italic; }
+.pillar-text { color:var(--text-secondary); font-size:.93rem; line-height:1.8; }
+
+/* ── ALT SECTION ── */
+.sec-alt {
+  background:var(--bg-secondary);
+}
+
+/* ── CONTENT BODY ── */
+.cb { max-width:880px; margin:0 auto; }
+.cb h3 {
+  color:var(--accent-cyan);
+  margin:2.8rem 0 1rem;
+  padding-bottom:.5rem;
+  border-bottom:1px solid var(--border-c);
+  font-size:1.4rem;
+}
+.cb h4 {
+  color:var(--accent-gold);
+  margin:2rem 0 .8rem;
+  font-family:'Exo 2',sans-serif;
+  font-weight:700;
+  font-size:1.05rem;
+}
+.cb p { color:var(--text-secondary); }
+.cb ul,.cb ol {
+  margin:.8rem 0 1.5rem 1.6rem;
+  color:var(--text-secondary);
+}
+.cb li { margin-bottom:.5rem; line-height:1.75; }
+.cb li::marker { color:var(--accent-cyan); }
+
+/* ── COUNTER STRIP ── */
+.ctr-strip {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:var(--border-c);
+  border:1px solid var(--border-c);
+  margin:3rem 0;
+}
+.ctr-box {
+  background:var(--bg-card);
+  padding:2rem 1.5rem;
+  text-align:center;
+  transition:background var(--tr-med);
+  cursor:default;
+}
+.ctr-box:hover { background:var(--bg-card-h); }
+.ctr-num {
+  font-family:'Orbitron',sans-serif;
+  font-size:2rem;
+  font-weight:900;
+  color:var(--accent-cyan);
+  display:block;
+  margin-bottom:.3rem;
+}
+.ctr-lbl {
+  font-size:.72rem;
+  color:var(--text-muted);
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+/* ── COMPARISON TABLE ── */
+.cmp-table {
+  width:100%;
+  border-collapse:collapse;
+  margin:2rem 0;
+  font-size:.93rem;
+}
+.cmp-table th {
+  background:rgba(0,207,245,.09);
+  color:var(--accent-cyan);
+  font-family:'Orbitron',sans-serif;
+  font-size:.68rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:.9rem 1.3rem;
+  text-align:left;
+  border-bottom:2px solid var(--border-c);
+  white-space:nowrap;
+}
+.cmp-table td {
+  padding:.85rem 1.3rem;
+  border-bottom:1px solid rgba(0,207,245,.07);
+  color:var(--text-secondary);
+  vertical-align:top;
+}
+.cmp-table tr:hover td { background:rgba(0,207,245,.025); }
+.cmp-table td:first-child { color:var(--text-primary); font-weight:600; }
+.t-good { color:var(--accent-green) !important; }
+.t-bad  { color:var(--accent-red)   !important; }
+.t-mid  { color:var(--accent-gold)  !important; }
+
+/* ── TIMELINE ── */
+.timeline { position:relative; padding:2rem 0; }
+.timeline::before {
+  content:'';
+  position:absolute;
+  left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,var(--accent-cyan) 20%,var(--accent-gold) 80%,transparent);
+  transform:translateX(-50%);
+}
+.tl-item {
+  display:flex;
+  justify-content:flex-end;
+  padding-right:calc(50% + 2.5rem);
+  margin-bottom:3rem;
+  position:relative;
+}
+.tl-item:nth-child(even) {
+  justify-content:flex-start;
+  padding-right:0;
+  padding-left:calc(50% + 2.5rem);
+}
+.tl-dot {
+  position:absolute;
+  left:50%;top:1.2rem;
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--accent-cyan);
+  border:2px solid var(--bg-primary);
+  transform:translateX(-50%);
+  box-shadow:0 0 12px var(--accent-cyan);
+  transition:transform var(--tr-med),box-shadow var(--tr-med);
+}
+.tl-item:nth-child(even) .tl-dot {
+  background:var(--accent-gold);
+  box-shadow:0 0 12px var(--accent-gold);
+}
+.tl-item:hover .tl-dot { transform:translateX(-50%) scale(1.4); }
+.tl-card {
+  background:var(--bg-card);
+  border:1px solid var(--border-c);
+  padding:1.5rem;
+  max-width:430px;
+  transition:all var(--tr-med);
+  cursor:default;
+}
+.tl-card:hover {
+  border-color:rgba(0,207,245,.45);
+  box-shadow:var(--glow-c);
+  transform:translateY(-3px);
+}
+.tl-item:nth-child(even) .tl-card { border-color:var(--border-g); }
+.tl-item:nth-child(even) .tl-card:hover {
+  border-color:rgba(232,160,32,.45);
+  box-shadow:var(--glow-g);
+}
+.tl-year {
+  font-family:'Orbitron',sans-serif;
+  font-size:1.05rem;
+  color:var(--accent-cyan);
+  font-weight:700;
+  margin-bottom:.4rem;
+}
+.tl-item:nth-child(even) .tl-year { color:var(--accent-gold); }
+.tl-event { font-weight:700; color:var(--text-primary); font-size:.98rem; margin-bottom:.45rem; }
+.tl-desc  { color:var(--text-secondary); font-size:.87rem; margin:0; line-height:1.7; }
+
+@media(max-width:768px){
+  .timeline::before { left:1.4rem; }
+  .tl-item,.tl-item:nth-child(even) {
+    padding-right:0;
+    padding-left:3.8rem;
+    justify-content:flex-start;
+  }
+  .tl-dot { left:1.4rem; }
+  .tl-card { max-width:100%; }
+}
+
+/* ── 4 PATHS ── */
+.paths { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem; }
+.path-card {
+  padding:2rem 1.8rem;
+  border:1px solid;
+  position:relative;
+  transition:all var(--tr-med);
+  cursor:default;
+}
+.path-card:hover { transform:translateY(-5px); }
+.path-A { border-color:rgba(192,57,43,.4); background:rgba(192,57,43,.03); }
+.path-B { border-color:rgba(211,84,0,.4);  background:rgba(211,84,0,.03); }
+.path-C { border-color:var(--border-g);    background:rgba(232,160,32,.03); }
+.path-D { border-color:var(--border-c);    background:rgba(0,207,245,.03); }
+.path-A:hover { box-shadow:0 0 25px rgba(192,57,43,.25); }
+.path-B:hover { box-shadow:0 0 25px rgba(211,84,0,.25); }
+.path-C:hover { box-shadow:var(--glow-g); }
+.path-D:hover { box-shadow:var(--glow-c); }
+.path-badge {
+  font-family:'Share Tech Mono',monospace;
+  font-size:.65rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:.8rem;
+}
+.path-A .path-badge { color:#e74c3c; }
+.path-B .path-badge { color:#e67e22; }
+.path-C .path-badge { color:var(--accent-gold); }
+.path-D .path-badge { color:var(--accent-cyan); }
+.path-name {
+  font-family:'Exo 2',sans-serif;
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--text-primary);
+  margin-bottom:1rem;
+}
+.path-desc { color:var(--text-secondary); font-size:.88rem; line-height:1.75; }
+.path-outcome {
+  margin-top:1rem;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.08em;
+}
+.path-A .path-outcome,.path-B .path-outcome { color:#e74c3c; }
+.path-C .path-outcome { color:var(--accent-gold); }
+.path-D .path-outcome { color:var(--accent-cyan); }
+
+/* ── MANIFESTO BAND ── */
+.manifesto-band {
+  background:linear-gradient(135deg,rgba(0,207,245,.07),rgba(0,176,150,.06),rgba(232,160,32,.05));
+  border-top:1px solid var(--border-c);
+  border-bottom:1px solid var(--border-c);
+  padding:4.5rem 0;
+  text-align:center;
+}
+.manifesto-text {
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(1.1rem,2.5vw,1.9rem);
+  font-weight:700;
+  color:var(--text-bright);
+  max-width:820px;
+  margin:0 auto;
+  line-height:1.55;
+}
+.manifesto-text span.c { color:var(--accent-cyan); }
+.manifesto-text span.g { color:var(--accent-gold); }
+
+/* ── RESOURCE LINKS ── */
+.res-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }
+.res-link {
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  background:var(--bg-card);
+  border:1px solid var(--border-c);
+  padding:1.2rem 1.4rem;
+  color:var(--text-primary);
+  text-decoration:none;
+  transition:all var(--tr-med);
+  font-size:.88rem;
+  font-weight:600;
+}
+.res-link:hover {
+  background:var(--bg-card-h);
+  border-color:var(--accent-cyan);
+  color:var(--accent-cyan);
+  transform:translateX(5px);
+  box-shadow:var(--glow-c);
+}
+.res-icon { font-size:1.5rem; flex-shrink:0; }
+.res-sub { font-size:.78rem; color:var(--text-muted); display:block; font-weight:300; margin-top:.1rem; }
+
+/* ── ACCORDION ── */
+.accordion { margin:2rem 0; }
+.acc-item { border:1px solid var(--border-c); margin-bottom:.5rem; }
+.acc-hd {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.1rem 1.5rem;
+  cursor:pointer;
+  background:var(--bg-card);
+  transition:background var(--tr-fast);
+  font-weight:600;
+  color:var(--text-primary);
+  font-size:.96rem;
+  user-select:none;
+}
+.acc-hd:hover { background:var(--bg-card-h); }
+.acc-hd.open { color:var(--accent-cyan); border-bottom:1px solid var(--border-c); }
+.acc-arrow {
+  color:var(--accent-cyan);
+  font-family:'Share Tech Mono',monospace;
+  font-size:1.2rem;
+  transition:transform var(--tr-fast);
+}
+.acc-hd.open .acc-arrow { transform:rotate(45deg); }
+.acc-body {
+  display:none;
+  padding:1.5rem;
+  background:rgba(0,0,0,.25);
+  color:var(--text-secondary);
+  line-height:1.85;
+  font-size:.95rem;
+}
+.acc-body.open { display:block; }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--bg-secondary);
+  border-top:1px solid var(--border-c);
+  padding:3.5rem 0 2rem;
+  text-align:center;
+}
+.ft-logo {
+  font-family:'Orbitron',sans-serif;
+  font-size:1.4rem;
+  font-weight:900;
+  color:var(--accent-cyan);
+  margin-bottom:.5rem;
+  letter-spacing:.1em;
+}
+.ft-tagline {
+  font-family:'Share Tech Mono',monospace;
+  font-size:.68rem;
+  color:var(--text-muted);
+  letter-spacing:.18em;
+  margin-bottom:2rem;
+  text-transform:uppercase;
+}
+.ft-links { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; margin-bottom:2rem; }
+.ft-links a { color:var(--text-muted); font-size:.83rem; transition:color var(--tr-fast); }
+.ft-links a:hover { color:var(--accent-cyan); }
+.ft-copy { font-size:.78rem; color:var(--text-muted); }
+
+/* ── SCROLL TOP ── */
+.scroll-top {
+  position:fixed;
+  bottom:2rem;right:2rem;
+  width:46px;height:46px;
+  background:rgba(0,207,245,.09);
+  border:1px solid var(--border-c);
+  color:var(--accent-cyan);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  z-index:200;
+  opacity:0;
+  transition:all var(--tr-med);
+  font-size:1.2rem;
+}
+.scroll-top.vis { opacity:1; }
+.scroll-top:hover {
+  background:rgba(0,207,245,.2);
+  box-shadow:var(--glow-c);
+  transform:translateY(-3px);
+}
+
+/* ── PROGRESS BARS ── */
+.prog-item { margin-bottom:1.5rem; }
+.prog-label { display:flex; justify-content:space-between; margin-bottom:.4rem; font-size:.88rem; }
+.prog-label .pl { color:var(--text-primary); }
+.prog-label .pv { color:var(--accent-cyan); font-family:'Share Tech Mono',monospace; font-size:.78rem; }
+.prog-bar { height:3px; background:rgba(0,207,245,.1); position:relative; }
+.prog-fill {
+  height:100%;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-teal));
+  width:0;
+  transition:width 1.8s ease;
+  position:relative;
+}
+.prog-fill::after {
+  content:'';
+  position:absolute;
+  right:0;top:50%;
+  transform:translateY(-50%);
+  width:9px;height:9px;
+  border-radius:50%;
+  background:var(--accent-cyan);
+  box-shadow:0 0 8px var(--accent-cyan);
+}
+
+/* ── INTRO SPLIT ── */
+.intro-split { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+@media(max-width:768px){ .intro-split { grid-template-columns:1fr; gap:2.5rem; } }
+.intro-panel {
+  background:var(--bg-card);
+  border:1px solid var(--border-c);
+  padding:2.5rem;
+  position:relative;
+}
+.intro-panel::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-gold));
+}
+.intro-list { list-style:none; margin-top:1.5rem; }
+.intro-list li {
+  padding:.6rem 0 .6rem 1.8rem;
+  position:relative;
+  color:var(--text-secondary);
+  font-size:.97rem;
+  border-bottom:1px solid rgba(0,207,245,.07);
+}
+.intro-list li::before { content:'▸'; position:absolute; left:0; color:var(--accent-cyan); }
+.intro-list li:last-child { border-bottom:none; }
+
+/* ── RESPONSIVE MISC ── */
+@media(max-width:600px){
+  h1 { font-size:1.9rem; }
+  .container,.container-wide { padding:0 1rem; }
+  section { padding:3.5rem 0; }
+  .hero-stats { gap:1.8rem; }
+  .g2,.g3,.g4 { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     TICKER BAR
+══════════════════════════════════════ -->
+<div class="ticker-bar" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">Electric Technocracy</span>
+    <span class="ticker-item">Universal Basic Income — Financed by AI &amp; Robotics</span>
+    <span class="ticker-item">Direct Digital Democracy — Every Vote Counts Globally</span>
+    <span class="ticker-item">Juridical Singularity — One World, One Law</span>
+    <span class="ticker-item">World Succession Deed 1400/98 — The Legal Foundation</span>
+    <span class="ticker-item">Artificial Superintelligence — Advisor, Not Ruler</span>
+    <span class="ticker-item">Post-Scarcity Economy — Abundance for All</span>
+    <span class="ticker-item">Technology Tax — Machines Pay, Humans Flourish</span>
+    <span class="ticker-item">The Electronic Paradise — Humanity's Next Civilization</span>
+    <span class="ticker-item">Electric Technocracy</span>
+    <span class="ticker-item">Universal Basic Income — Financed by AI &amp; Robotics</span>
+    <span class="ticker-item">Direct Digital Democracy — Every Vote Counts Globally</span>
+    <span class="ticker-item">Juridical Singularity — One World, One Law</span>
+    <span class="ticker-item">World Succession Deed 1400/98 — The Legal Foundation</span>
+    <span class="ticker-item">Artificial Superintelligence — Advisor, Not Ruler</span>
+    <span class="ticker-item">Post-Scarcity Economy — Abundance for All</span>
+    <span class="ticker-item">Technology Tax — Machines Pay, Humans Flourish</span>
+    <span class="ticker-item">The Electronic Paradise — Humanity's Next Civilization</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-badge">Civilizational Blueprint · Est. 1998 · Public Domain</div>
+    <h1 class="hero-title">
+      <span class="line-cyan">Electric Technocracy</span>
+      <span class="line-gold">The Architecture of the Future World</span>
+    </h1>
+    <p class="hero-subtitle">ASI · UBI · DDD · Juridical Singularity · Post-Scarcity · Electronic Paradise</p>
+    <p class="hero-desc">
+      A comprehensive blueprint for a <strong>unified planetary civilization</strong> — governed by 
+      <em>Artificial Superintelligence as neutral advisor</em>, funded by taxing machines rather than 
+      humans, and guided by the direct democratic will of all eight billion people on Earth. 
+      This is not science fiction. The legal foundation was laid in <strong>1998</strong>.
+    </p>
+    <div class="hero-btns">
+      <a href="#what-is-et" class="btn btn-cyan">Explore the Concept ↓</a>
+      <a href="#ubi" class="btn btn-outline">Universal Basic Income</a>
+      <a href="#juridical" class="btn btn-gold">Juridical Singularity</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="h-stat-num">1998</span>
+        <div class="h-stat-lbl">Legal Foundation Year</div>
+      </div>
+      <div>
+        <span class="h-stat-num">0%</span>
+        <div class="h-stat-lbl">Tax Burden on Humans</div>
+      </div>
+      <div>
+        <span class="h-stat-num">8B+</span>
+        <div class="h-stat-lbl">People Receiving UBI</div>
+      </div>
+      <div>
+        <span class="h-stat-num">∞</span>
+        <div class="h-stat-lbl">Potential Productivity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MANIFESTO BAND
+══════════════════════════════════════ -->
+<div class="manifesto-band">
+  <p class="manifesto-text">
+    "<span class="c">Machines work.</span> <span class="g">Humans live.</span> 
+    Abundance belongs to all — not the few. 
+    The age of <span class="c">scarcity-driven politics</span> is ending. 
+    The age of <span class="g">intelligent civilization</span> begins."
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════
+     WHAT IS ELECTRIC TECHNOCRACY
+══════════════════════════════════════ -->
+<section id="what-is-et">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Core Concept</div>
+      <h2 class="sec-title">What Is <span class="t-cyan">Electric Technocracy?</span></h2>
+      <div class="sec-line"></div>
+      <p class="sec-intro">
+        Electric Technocracy is a revolutionary, future-oriented model of government and society — 
+        designed for a globally united humanity in the era of exponential technological acceleration. 
+        It represents the most logical institutional response to a world in which <strong>machines generate the majority of economic value</strong>, 
+        rendering the old scarcity-based nation-state system obsolete.
+      </p>
+    </div>
+
+    <div class="intro-split">
+      <div class="intro-text">
+        <h3 style="color:var(--text-bright);border:none;margin-top:0;">A Civilization Built for the 21st Century</h3>
+        <p>
+          For the first time in recorded history, humanity is approaching a threshold where <strong>Artificial Superintelligence (ASI), 
+          robotics, and full automation</strong> are capable of performing all economically necessary tasks — without human labor. 
+          This is not a threat, but a historic liberation — <em>if, and only if</em>, the fruits of that automation are 
+          distributed fairly to all people on Earth.
+        </p>
+        <p>
+          Electric Technocracy is the institutional design that makes this distribution possible. It abolishes the fragmented 
+          patchwork of competing nation-states and replaces it with a <strong>unified global governance architecture</strong> 
+          grounded in three principles: a neutral superintelligent advisor, direct democratic participation by all citizens, 
+          and a <em>Universal Basic Income financed entirely by taxing the productivity of machines and corporations</em>.
+        </p>
+        <ul class="intro-list">
+          <li><strong>No income tax, no wage tax, no VAT</strong> — humans are completely tax-exempt</li>
+          <li><strong>Robots, AI systems, and corporations</strong> fund the common wealth</li>
+          <li><strong>Every person on Earth</strong> receives an unconditional basic income</li>
+          <li><strong>ASI acts as advisor</strong> — humans retain all decision-making power</li>
+          <li><strong>Direct Digital Democracy</strong> — global online voting on all proposals</li>
+          <li><strong>No political parties</strong> — no lobbying, no corruption, no ideology-driven wars</li>
+        </ul>
+      </div>
+      <div class="intro-panel">
+        <h4 style="color:var(--accent-cyan);font-family:'Orbitron',sans-serif;font-size:1rem;margin-bottom:1.5rem;letter-spacing:.06em;">
+          ELECTRIC TECHNOCRACY AT A GLANCE
+        </h4>
+        <div class="def-box">
+          <div class="def-title">Primary Definition</div>
+          <p>A global governance model replacing competing nation-states with a unified world government, supported by Artificial Superintelligence as neutral advisor, funded by a Technology Tax on AI and robotics, and governed through Direct Digital Democracy — ensuring that the productivity of the machine age flows back to all of humanity as an Unconditional Basic Income.</p>
+        </div>
+        <div class="tags">
+          <span class="tag">ASI Governance</span>
+          <span class="tag">Tech Tax</span>
+          <span class="tag">UBI</span>
+          <span class="tag">DDD</span>
+          <span class="tag-gold">Post-Scarcity</span>
+          <span class="tag-gold">No Nation-States</span>
+          <span class="tag-gold">Electronic Paradise</span>
+          <span class="tag">WSD 1400/98</span>
+        </div>
+        <div class="hl-box" style="margin-top:1.5rem;">
+          <p>The legal framework enabling this transformation already exists: the <strong>World Succession Deed 1400/98</strong>, 
+          an international law treaty concluded on 6 October 1998 with the participation of NATO and the United Nations — 
+          which constitutes the irrevocable legal basis for a unified world state.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     COUNTER STRIP
+══════════════════════════════════════ -->
+<div style="background:var(--bg-secondary);border-top:1px solid var(--border-c);border-bottom:1px solid var(--border-c);">
+  <div class="container">
+    <div class="ctr-strip">
+      <div class="ctr-box"><span class="ctr-num">47%</span><div class="ctr-lbl">Jobs susceptible to automation (Frey &amp; Osborne, 2017)</div></div>
+      <div class="ctr-box"><span class="ctr-num">$150B</span><div class="ctr-lbl">Annual profits from forced labor — a system Electric Technocracy ends</div></div>
+      <div class="ctr-box"><span class="ctr-num">$2.4T</span><div class="ctr-lbl">Annual global military spending redirected to abundance</div></div>
+      <div class="ctr-box"><span class="ctr-num">100×</span><div class="ctr-lbl">Projected productivity increase under full ASI automation</div></div>
+      <div class="ctr-box"><span class="ctr-num">0</span><div class="ctr-lbl">Wars in a world without competing nation-states</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     THREE PILLARS
+══════════════════════════════════════ -->
+<section id="pillars">
+  <div class="container-wide">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Structural Architecture</div>
+      <h2 class="sec-title">The Three <span class="t-cyan">Pillars</span> of Electric Technocracy</h2>
+      <div class="sec-line"></div>
+      <p class="sec-intro">
+        Three interlocking systems form the operational foundation of Electric Technocracy. 
+        Remove any one of them, and the model collapses. Together, they create a 
+        self-reinforcing architecture of intelligence, justice, and democratic sovereignty.
+      </p>
+    </div>
+    <div class="pillars">
+      <div class="pillar pillar-asi">
+        <div class="pillar-num">PILLAR 01 — COGNITIVE LAYER</div>
+        <span class="pillar-icon">🧠</span>
+        <h3 class="pillar-name">ASI</h3>
+        <p class="pillar-fullname">Artificial Superintelligence</p>
+        <p class="pillar-text">
+          At the technological core of Electric Technocracy sits the <strong>Artificial Superintelligence</strong> — 
+          an AI system of capabilities far exceeding any individual human expert in every domain of knowledge. 
+          Crucially, ASI does <em>not</em> govern. It advises.
+        </p>
+        <p class="pillar-text" style="margin-top:.9rem;">
+          ASI continuously analyzes global data streams — economic flows, ecological indicators, 
+          social sentiment, infrastructure health — and generates <strong>multiple evidence-based solution proposals</strong> 
+          for each identified problem. These proposals are published openly, in human-understandable language, 
+          and submitted to global democratic vote. No decision becomes law without explicit majority approval.
+        </p>
+        <p class="pillar-text" style="margin-top:.9rem;">
+          An independent offline <em>Watchdog AI</em> monitors the primary ASI at all times, with hardware-based 
+          kill-switches that any verified oversight body can trigger. The ASI is programmed through 
+          <strong>Cooperative Inverse Reinforcement Learning (CIRL)</strong> — its goals are aligned with 
+          human values at the deepest architectural level, not merely constrained by external rules.
+        </p>
+        <div class="tags" style="margin-top:1.2rem;">
+          <span class="tag">Neutral Advisor</span>
+          <span class="tag">Open Source</span>
+          <span class="tag">Watchdog AI</span>
+          <span class="tag">CIRL Alignment</span>
+        </div>
+      </div>
+
+      <div class="pillar pillar-ubi">
+        <div class="pillar-num">PILLAR 02 — ECONOMIC LAYER</div>
+        <span class="pillar-icon">💎</span>
+        <h3 class="pillar-name">UBI</h3>
+        <p class="pillar-fullname">Universal Basic Income — The Technology Dividend</p>
+        <p class="pillar-text">
+          The <strong>Universal Basic Income</strong> of Electric Technocracy is fundamentally unlike all previous 
+          UBI proposals. Classical models redistribute wealth from successful citizens to others — 
+          creating resentment and dependency. The Electric Technocracy UBI takes <em>nothing from any human</em>. 
+          It distributes the productivity of <strong>machines, AI systems, and corporations</strong>.
+        </p>
+        <p class="pillar-text" style="margin-top:.9rem;">
+          Every person on Earth receives an unconditional income — not as welfare, not as charity — 
+          but as their <strong>rightful share of the collective wealth created by automation</strong>. 
+          As machines become more efficient, UBI grows automatically. The more robots produce, 
+          the wealthier every citizen becomes. Humanity's interests and technological progress 
+          become perfectly aligned.
+        </p>
+        <p class="pillar-text" style="margin-top:.9rem;">
+          Humans are entirely <em>tax-exempt</em>. No income tax. No consumption tax. No social security levy. 
+          Whatever a person earns through creative work, entrepreneurship, or voluntary activity, 
+          they keep entirely. The state's revenues derive exclusively from the <strong>Technology Tax</strong> 
+          on automated production, AI usage fees, and corporate profit shares.
+        </p>
+        <div class="tags" style="margin-top:1.2rem;">
+          <span class="tag-gold">Tax-Free Humans</span>
+          <span class="tag-gold">Tech Tax</span>
+          <span class="tag-gold">Dynamic Growth</span>
+          <span class="tag-gold">Not Charity</span>
+        </div>
+      </div>
+
+      <div class="pillar pillar-ddd">
+        <div class="pillar-num">PILLAR 03 — DEMOCRATIC LAYER</div>
+        <span class="pillar-icon">🌐</span>
+        <h3 class="pillar-name">DDD</h3>
+        <p class="pillar-fullname">Direct Digital Democracy</p>
+        <p class="pillar-text">
+          <strong>Direct Digital Democracy</strong> replaces every form of representative politics — 
+          parties, parliaments, lobbying systems, diplomatic negotiations — with a secure, 
+          transparent, blockchain-anchored global voting infrastructure accessible to every citizen on Earth.
+        </p>
+        <p class="pillar-text" style="margin-top:.9rem;">
+          Every person can <em>submit proposals</em> to the system. The ASI analyzes each submission for 
+          feasibility, ethical conformity, and systemic consequences, then generates multiple elaborated 
+          variants. These are published for global comment and collaborative refinement. 
+          Once a proposal achieves community approval, it enters <strong>binding worldwide online vote</strong> 
+          — one person, one vote, regardless of origin, status, or wealth.
+        </p>
+        <p class="pillar-text" style="margin-top:.9rem;">
+          Because all citizens vote directly on specific policy proposals rather than electing 
+          representatives, <em>corruption becomes structurally impossible</em>: there is no longer 
+          a small group of legislators to bribe. Persuading a majority of eight billion people 
+          requires transparent, publicly verifiable argumentation — not lobbying.
+        </p>
+        <div class="tags" style="margin-top:1.2rem;">
+          <span class="tag">Blockchain-Secured</span>
+          <span class="tag">No Parties</span>
+          <span class="tag">Open Proposals</span>
+          <span class="tag">Real-Time Votes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     UBI DEEP DIVE
+══════════════════════════════════════ -->
+<section id="ubi" class="sec-alt grid-bg">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Economic Revolution</div>
+      <h2 class="sec-title">Universal Basic Income — <span class="t-gold">The Great Narrative</span></h2>
+      <div class="sec-line" style="background:linear-gradient(90deg,var(--accent-gold),#f0c060);"></div>
+      <p class="sec-intro">
+        For millennia, human survival depended on labor. Every civilization taxed human effort to fund its institutions. 
+        That era is ending — not because work has no value, but because <strong>machines now create the majority of economic value</strong>, 
+        and the tax systems of the old world can no longer sustain the social contracts of the new.
+      </p>
+    </div>
+
+    <div class="cb">
+      <div class="quote-box">
+        <blockquote>
+          "For the first time in history, a basic income is not alms — it is a dividend. Every human receives not the minimum 
+          for survival, but their rightful share of the collective wealth of the machines."
+        </blockquote>
+        <cite>— Electric Technocracy: The Great Narrative of Universal Basic Income</cite>
+      </div>
+
+      <h3>Why Classical UBI Models Fail</h3>
+      <p>
+        Conventional Universal Basic Income proposals share a fundamental blind spot: they remain trapped within 
+        the logic of the industrial economy they seek to transcend. They propose financing basic income through 
+        higher taxes on <em>human income, wealth, or consumption</em> — meaning the successful are burdened 
+        to subsidize others. This creates new injustices, kills incentives, and ultimately dissolves under 
+        the pressure of capital flight to lower-tax jurisdictions.
+      </p>
+      <p>
+        The deeper mistake is attempting to fund a <strong>post-industrial project with industrial-era fiscal tools</strong>. 
+        When robots build the cars, algorithms process the legal contracts, and AI systems diagnose diseases, 
+        taxing the diminishing human workforce generates a shrinking and structurally unstable revenue base. 
+        Classical UBI cannot scale to meet the demands of full automation.
+      </p>
+
+      <h3>The Three Pillars of UBI Financing</h3>
+
+      <h4>① Robot Tax — The Levy on Mechanical Labor</h4>
+      <p>
+        Every robot, every autonomous system, every machine that displaces a human activity contributes proportionally 
+        to the common fund. Whether it is a warehouse logistics robot, an autonomous agricultural harvester, 
+        a medical diagnosis AI, or a generative model writing legal briefs — <strong>each unit of machine 
+        productivity is tracked, valued, and taxed</strong>. Metrics may include production volume, 
+        energy consumption, computational throughput, or tasks completed per hour.
+      </p>
+      <p>
+        Because robots cannot emigrate to lower-tax jurisdictions the way human capital can, 
+        this tax base is inherently more stable and harder to evade than income taxes or capital gains levies. 
+        A factory cannot pick up and move overnight. A server farm can be taxed where its physical infrastructure stands.
+      </p>
+
+      <h4>② AI Usage Fee — The Levy on Cognitive Labor</h4>
+      <p>
+        As artificial intelligence systems increasingly perform cognitive work — generating text, analyzing data, 
+        making diagnoses, designing products, managing supply chains — each use of significant AI processing 
+        power generates a <em>digital footprint</em>. This footprint — measured in compute time, 
+        energy consumption, and data throughput — constitutes the basis for an AI Usage Fee that flows 
+        automatically into the universal income system.
+      </p>
+
+      <h4>③ Corporate Technology Tax — The Levy on Automation Profits</h4>
+      <p>
+        Companies that profit massively from automation contribute an additional share of their gains to society — 
+        not as punishment, but as <strong>repayment</strong>. Every corporation's productive capacity rests on 
+        millennia of accumulated human knowledge, publicly funded infrastructure, educational systems, 
+        and legal frameworks. The technology they deploy today is a collective inheritance. 
+        The Corporate Technology Tax formalizes this debt.
+      </p>
+
+      <h3>Dynamic UBI — Growing With Progress</h3>
+      <p>
+        Unlike static welfare payments that become inadequate as living costs rise, the UBI of Electric Technocracy 
+        is <strong>dynamically coupled to technological productivity</strong>. As automation becomes more efficient, 
+        tax revenues increase automatically — and UBI payments rise in proportion. The more capable robots become, 
+        the wealthier every citizen on Earth becomes. This alignment transforms the political economy of automation: 
+        instead of workers fearing machines as threats to their livelihoods, <em>every citizen has a direct 
+        financial interest in accelerating automation</em>.
+      </p>
+
+      <div class="hl-box">
+        <p>
+          <strong>The Inflation Question:</strong> Critics of UBI consistently raise the fear of inflation — 
+          if everyone receives more money, prices simply rise. In Electric Technocracy, this concern is structurally 
+          addressed: UBI payments grow in proportion to <em>real productive output</em>. 
+          New purchasing power does not emerge arbitrarily — it corresponds to actual goods and services 
+          produced by automated systems. When supply scales with demand (because machines can always produce more), 
+          inflationary pressure is naturally constrained. Post-scarcity economics eliminates the primary driver of 
+          demand-pull inflation.
+        </p>
+      </div>
+
+      <h3>The Moral Core: Humans Become Wishmasters</h3>
+      <p>
+        When robots handle all necessary production and AI systems manage all administrative complexity, 
+        what remains for humans? The answer is as simple as it is transformative: <strong>imagination</strong>. 
+        In the Electric Technocracy, the human being becomes what the tradition of oriental mythology 
+        calls the Wishmaster — the dreamer, visionary, creator of ideas. The machines are the djinn: 
+        immensely powerful servants that transform human imagination into material reality.
+      </p>
+      <p>
+        A child sketches a city — ASI designs the infrastructure and robots build it. 
+        An artist describes a sculpture — fabrication systems carve it in marble or light. 
+        A scientist hypothesizes a cure — quantum computing simulates and validates it overnight. 
+        <em>The boundary between imagination and reality dissolves.</em> Human creativity becomes the 
+        engine of civilization, rather than human labor.
+      </p>
+
+      <h3>Social Implications of Universal Material Security</h3>
+      <p>
+        The psychological impact of guaranteed material security — knowing that food, housing, healthcare, 
+        and education are unconditionally provided — reshapes human behavior and social dynamics in 
+        profound ways. Studies from every major UBI pilot program (Finland 2017–2019, Dauphin Canada, 
+        the Alaska Permanent Fund) consistently demonstrate that people receiving unconditional income 
+        are <strong>happier, healthier, and more motivated</strong> to engage in meaningful activity — 
+        not less. The fear that guaranteed income creates passivity confuses economic coercion with intrinsic motivation.
+      </p>
+      <p>
+        Electric Technocracy acknowledges the <em>psychological challenge of abundance</em>: when survival 
+        is guaranteed, humans must find new sources of meaning. The answer lies in creativity, exploration, 
+        community, and spiritual development — activities that have always been humanity's highest expression 
+        but were crowded out by the existential demands of economic survival. 
+        Liberation from necessity is the precondition for genuine human flourishing.
+      </p>
+    </div>
+
+    <!-- UBI Comparison Table -->
+    <div style="margin-top:3rem;">
+      <h3 style="font-family:'Orbitron',sans-serif;color:var(--accent-gold);font-size:1.1rem;margin-bottom:1.5rem;letter-spacing:.05em;">
+        COMPARISON: Classical UBI vs. Electric Technocracy UBI
+      </h3>
+      <div style="overflow-x:auto;">
+        <table class="cmp-table">
+          <thead>
+            <tr>
+              <th>Criterion</th>
+              <th>Classical UBI Models</th>
+              <th>Electric Technocracy UBI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Source of Funding</td><td class="t-bad">Higher taxes on human income &amp; wealth</td><td class="t-good">Technology Tax on AI, robots &amp; corporations</td></tr>
+            <tr><td>Human Tax Burden</td><td class="t-bad">Increased for successful individuals</td><td class="t-good">Zero — humans are completely tax-exempt</td></tr>
+            <tr><td>Inflation Risk</td><td class="t-bad">High — demand without proportional supply increase</td><td class="t-good">Minimal — coupled to real productive output</td></tr>
+            <tr><td>Growth Dynamic</td><td class="t-mid">Static or politically negotiated</td><td class="t-good">Automatically rises with automation efficiency</td></tr>
+            <tr><td>Capital Flight Risk</td><td class="t-bad">High — wealthy individuals &amp; corporations can relocate</td><td class="t-good">Low — machines cannot emigrate</td></tr>
+            <tr><td>Moral Framing</td><td class="t-mid">Redistributive welfare — creates resentment</td><td class="t-good">Technology dividend — a birthright, not charity</td></tr>
+            <tr><td>Incentive Effects</td><td class="t-bad">Discourages additional work; traps at dependency</td><td class="t-good">No disincentives — all additional earnings kept fully</td></tr>
+            <tr><td>Global Scalability</td><td class="t-bad">Fails across different national tax regimes</td><td class="t-good">Designed for planetary implementation</td></tr>
+            <tr><td>Political Stability</td><td class="t-bad">Vulnerable to populist backlash and fiscal crises</td><td class="t-good">Self-funding; grows with economic prosperity</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     JURIDICAL SINGULARITY
+══════════════════════════════════════ -->
+<section id="juridical">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Legal Philosophy</div>
+      <h2 class="sec-title">The <span class="t-cyan">Juridical Singularity</span></h2>
+      <div class="sec-line"></div>
+      <p class="sec-intro">
+        The Technological Singularity — the threshold at which machine intelligence surpasses aggregate 
+        human cognitive capacity — cannot safely emerge within the existing international legal order. 
+        The fragmented sovereignty of 193 competing nation-states is <strong>structurally incompatible</strong> 
+        with the governance requirements of Artificial Superintelligence.
+      </p>
+    </div>
+    <div class="cb">
+      <div class="def-box">
+        <div class="def-title">Juridical Singularity — Core Definition</div>
+        <p>
+          The Juridical Singularity is defined as the consolidation of all sovereign legal personality 
+          into a singular global subject — the termination of the pluralistic international legal system 
+          and its replacement by a unified global domestic law. It is the indispensable legal precondition 
+          for the Technological Singularity to emerge safely.
+        </p>
+      </div>
+
+      <h3>Why Pluralistic International Law Fails in the Age of ASI</h3>
+      <p>
+        Contemporary international law operates on a fundamental premise: the coexistence of multiple sovereign 
+        states in horizontal legal relations. This plurality is not a feature — it is the ontological operating 
+        condition of the entire legal architecture. Treaties require at least two distinct juridical entities. 
+        Customary law requires observable patterns of conduct across multiple sovereigns. Jus cogens norms 
+        derive their authority from recognition by the "international community of States as a whole."
+      </p>
+      <p>
+        This structure — which may have been adequate for managing industrial-era competition between territorial 
+        states — becomes <strong>categorically incompatible</strong> with the governance requirements of 
+        Artificial Superintelligence for four fundamental reasons:
+      </p>
+
+      <h4>① The Unified Sovereignty Requirement</h4>
+      <p>
+        ASI alignment protocols demand a <strong>single legal authority</strong> with uncontested competence 
+        to issue binding global norms. The 193 competing jurisdictions of the current system create 
+        catastrophic coordination failures: an ASI system encountering conflicting national regulations 
+        faces an unsolvable optimization problem. Compliance with one jurisdiction's requirements 
+        necessarily violates another's. There is no mechanism within international law to resolve 
+        this conflict — only political negotiation, which is too slow, too corrupt, and too ideologically 
+        constrained to manage superintelligent systems.
+      </p>
+
+      <h4>② The Global Infrastructure Integration Imperative</h4>
+      <p>
+        ASI systems operate through planetary-scale networks — energy grids, data centers, communication 
+        infrastructure — that <em>cannot be fragmented by territorial boundaries</em> without catastrophic 
+        functional collapse. The European electricity grid (ENTSO-E) coordinates real-time frequency 
+        synchronization across 35 countries. ASI infrastructure exhibits exponentially greater integration 
+        requirements. Fragmented jurisdictional control creates regulatory arbitrage opportunities that 
+        allow ASI optimization to externalize risks to more strictly-regulated jurisdictions.
+      </p>
+
+      <h4>③ The Universal Jurisdiction Necessity</h4>
+      <p>
+        A superintelligence constrained by 193 separate legal systems creates <strong>safe havens for unaligned 
+        development</strong>. States racing to develop ASI capabilities face pressure to relax safety constraints 
+        in order not to be outcompeted by rival states. This arms-race dynamic — already observable in the 
+        current geopolitics of AI development — produces a systemic bias toward speed over safety. 
+        Only universal jurisdiction eliminates these safe havens entirely.
+      </p>
+
+      <h4>④ The Normative Coherence Requirement</h4>
+      <p>
+        Ethical alignment of superintelligent systems requires a <strong>singular, coherent normative framework</strong>. 
+        When different jurisdictions embed fundamentally incompatible values — liberal democracies prioritizing 
+        individual rights, authoritarian states prioritizing collective stability, theocracies subordinating 
+        secular goods to religious imperatives — ASI systems operating across these value boundaries face 
+        incoherent optimization landscapes. There exists no unified "humanity's values" to extrapolate 
+        from a system of irreconcilably opposed normative frameworks.
+      </p>
+
+      <h3>The Logical Sequence: From Legal to Technological to Post-Scarcity</h3>
+      <p>
+        The transition to post-scarcity civilization follows a necessary sequential logic. Each phase creates 
+        the indispensable preconditions for the next:
+      </p>
+      <div class="hl-box">
+        <p>
+          <strong>Phase 1 — Juridical Singularity:</strong> All sovereign legal personalities consolidate into a 
+          single global subject. International law's pluralistic structure dissolves. Unified governance creates 
+          the normative infrastructure capable of safely managing ASI development.<br><br>
+          <strong>Phase 2 — Technological Singularity:</strong> Within the unified legal framework, ASI can emerge 
+          safely. Planetary infrastructure integrates. Cognitive augmentation becomes available. Machine 
+          productivity surpasses human economic contribution across all sectors.<br><br>
+          <strong>Phase 3 — Post-Scarcity Civilization:</strong> The combination of unified governance and 
+          superintelligent optimization enables universal abundance. The Technology Tax distributes machine 
+          productivity as UBI. Material scarcity — the organizing principle of all prior political economy — 
+          ceases to be the primary constraint on human possibility.
+        </p>
+      </div>
+
+      <h3>The Terminal Decay of International Law</h3>
+      <p>
+        The existing international legal system is not merely imperfect — it is <strong>terminally dysfunctional</strong>. 
+        The UN Security Council's veto architecture ensures that any permanent member can block enforcement 
+        against itself or its client states. The ICC lacks arrest powers and depends entirely on 
+        voluntary state cooperation for all enforcement. Human rights treaties exhibit essentially zero 
+        marginal protection effect beyond domestic institutional factors already present before ratification. 
+        Modern slavery persists for nearly 50 million people under a comprehensive treaty architecture 
+        that universally prohibits it.
+      </p>
+      <p>
+        These are not correctable failures of implementation. They are <em>structural impossibilities</em> 
+        inherent to the Westphalian sovereignty model: law governing sovereigns cannot constrain sovereigns 
+        because sovereigns by definition recognize no superior authority. This is the sovereignty trap — 
+        and it cannot be escaped through incremental reform, because any meaningful reform requires sovereign 
+        consent that sovereigns will never willingly surrender.
+      </p>
+      <p>
+        The intensifying contradictions — <strong>climate collapse requiring planetary coordination, 
+        pandemic risks demanding global biosecurity, ASI development accelerating under competitive dynamics, 
+        nuclear arsenals maintained by geopolitical calculation</strong> — all press toward the same 
+        conclusion: the Westphalian order must be superseded. The question is not whether, but whether 
+        humanity accomplishes this transformation deliberately through wisdom, or catastrophically through 
+        crisis.
+      </p>
+
+      <h3>The World Succession Deed 1400/98 — The Pathfinder Treaty</h3>
+      <p>
+        The legal mechanism for Juridical Singularity is not hypothetical. It was activated on 
+        <strong>6 October 1998</strong> with the conclusion of the 
+        <em>World Succession Deed (Staatensukzessionsurkunde) 1400/98</em> — an international law 
+        treaty concluded in Saarlouis, Germany, with the participation of NATO, the Netherlands, 
+        and the United Nations, notarized by notary Manfred Mohr.
+      </p>
+      <p>
+        The treaty constitutes the irreversible legal basis for the acquisition of national territories 
+        through a chain of contractual and technical connections — establishing the foundational 
+        legal framework through which the transition to unified global governance becomes possible. 
+        It is documented in the ITU-UN-NATO Treaty Series.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ASI SECTION
+══════════════════════════════════════ -->
+<section id="asi" class="sec-alt grid-bg">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Cognitive Core</div>
+      <h2 class="sec-title">Artificial Superintelligence — <span class="t-cyan">Advisor, Not Ruler</span></h2>
+      <div class="sec-line"></div>
+      <p class="sec-intro">
+        The most common fear about AI governance is the nightmare of a cold computational 
+        tyranny replacing human judgment. Electric Technocracy is built on the opposite principle: 
+        ASI provides the cognitive infrastructure that <strong>makes human democracy more intelligent, 
+        more informed, and more resistant to corruption</strong> — while humans retain absolute final authority.
+      </p>
+    </div>
+    <div class="cb">
+      <h3>The Five Systemic Failures of Human Governance — And How ASI Addresses Them</h3>
+
+      <h4>1. Cognitive Biases and Information Overload</h4>
+      <p>
+        Human cognition evolved for small-group decision-making in environments of local information. 
+        Confirmation bias, availability heuristic, in-group favoritism, loss aversion, present bias — 
+        these systematic distortions are not character flaws but evolutionary adaptations that become 
+        liabilities at civilizational scale. A politician subject to confirmation bias ignores evidence 
+        contradicting their ideology. Voters subject to availability heuristic overweight recent dramatic 
+        events while underweighting long-term systemic trends. ASI processes information according to 
+        <strong>explicitly programmed decision criteria</strong>, immune to these distortions.
+      </p>
+
+      <h4>2. Limited Information Processing Capacity</h4>
+      <p>
+        Human working memory limits simultaneous consideration to roughly 7±2 distinct information elements. 
+        Climate policy requires simultaneously optimizing across energy systems, agricultural production, 
+        transportation infrastructure, industrial processes, land use, ocean chemistry, and feedback loops 
+        spanning decades. No human — and no committee of humans — can model these interactions in real time. 
+        ASI systems can process millions of interdependent variables across century-long time horizons, 
+        generating evidence-based policy proposals that no human analyst could produce independently.
+      </p>
+
+      <h4>3. Ideological Tribalism</h4>
+      <p>
+        Political tribes adopt policy positions based on group identity rather than empirical evidence. 
+        Climate, taxation, healthcare, immigration — on all these issues, positions correlate far more 
+        strongly with party affiliation than with engagement with evidence. ASI evaluates policies 
+        according to explicitly specified objective functions — <em>optimizing for stated goals, 
+        not ideological identity</em>. When multiple solution variants are presented to citizens, 
+        they can evaluate each on its merits rather than its tribal signaling value.
+      </p>
+
+      <h4>4. Structural Corruption</h4>
+      <p>
+        Legislators face campaign financing pressures, revolving-door employment incentives, 
+        social embeddedness in elite networks, and career advancement motivations — all systematically 
+        misaligning their decisions from constituent preferences. US federal lobbying expenditures 
+        exceed $4 billion annually, directly purchasing legislative outcomes. ASI has 
+        <strong>no biological needs, no career ambitions, no social network connections, 
+        no financial interests</strong> — and operates through transparent, auditable algorithms 
+        that any citizen can inspect.
+      </p>
+
+      <h4>5. Electoral Short-Termism</h4>
+      <p>
+        Democratic electoral cycles of 2–6 years create systematic incentives against long-horizon 
+        investments whose costs are immediate and visible while benefits accrue beyond electoral 
+        windows. Climate policy, infrastructure investment, education reform, pandemic preparedness — 
+        all require commitments that rational vote-maximizing politicians systematically underweight. 
+        ASI evaluates policies across unlimited temporal horizons, and <strong>Direct Digital Democracy 
+        allows citizens to vote on long-horizon policies</strong> directly informed by ASI analysis 
+        of multi-decade consequences.
+      </p>
+
+      <h3>The Watchdog Architecture — Constitutional Safeguards Against Algorithmic Tyranny</h3>
+      <p>
+        Recognizing that ASI's superior analytical capabilities create the risk of gradual authority 
+        accumulation, Electric Technocracy embeds six interlocking safeguards:
+      </p>
+      <div class="g2" style="margin-top:1.5rem;">
+        <div class="card">
+          <div class="card-title">① Absolute Human Veto</div>
+          <p class="card-text">No ASI recommendation becomes binding law without explicit majority approval in Direct Digital Democracy. Citizens can reject any proposal regardless of its analytical justification. Human sovereignty is non-negotiable.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">② Open Source Transparency</div>
+          <p class="card-text">All ASI algorithms governing public decisions are publicly accessible, fully documented, and auditable by any citizen. No black-box processing. Every recommendation must be explainable in human-comprehensible terms.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">③ Watchdog AI (Offline)</div>
+          <p class="card-text">An independent, scaled-down AI monitors the primary ASI 24/7, specifically designed to detect problematic behavioral patterns. Critically, it operates completely offline — isolated from the main ASI's network integration to prevent manipulation.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">④ Hardware Kill-Switches</div>
+          <p class="card-text">Physical, software-independent emergency stop mechanisms — including hardware kill switches capable of shutting down the entire system or cutting power supplies — can be triggered independently of any software layer.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">⑤ Value Alignment (CIRL)</div>
+          <p class="card-text">Cooperative Inverse Reinforcement Learning ensures ASI intrinsically values human welfare as a terminal goal — not merely an external constraint it might circumvent. Alignment operates at the deepest architectural level.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">⑥ Rotating Ethics Councils</div>
+          <p class="card-text">Randomly selected citizen ethics councils with rotating membership hold permanent authority to audit ASI systems, flag concerning behaviors, and recommend modifications — preventing both elite capture and technocratic insularity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     DIRECT DIGITAL DEMOCRACY
+══════════════════════════════════════ -->
+<section id="ddd">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Democratic Architecture</div>
+      <h2 class="sec-title">Direct Digital <span class="t-cyan">Democracy</span> — How It Works</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="cb">
+      <p>
+        Direct Digital Democracy is <strong>not</strong> simply online voting for existing political parties. 
+        It is a complete replacement of the representative political apparatus with a continuous, 
+        participatory governance platform that gives every citizen on Earth an equal voice in every decision. 
+        Understanding how the process flows is essential to grasping why it eliminates the systemic 
+        failures of both democracy and technocracy.
+      </p>
+
+      <h3>The Five-Stage DDD Process</h3>
+      <div class="g3" style="margin-top:1.5rem;">
+        <div class="card card-gold">
+          <div class="card-title" style="font-size:.8rem;letter-spacing:.08em;">STAGE 01 — SUBMISSION</div>
+          <p class="card-text">Any citizen worldwide submits an idea or proposal through the digital platform. No gatekeeping by credentials, wealth, or institutional affiliation. The ASI performs an initial check for logical plausibility, technical feasibility, and ethical conformity. Each submission serves as a prompt for the AI to develop multiple elaborated versions.</p>
+        </div>
+        <div class="card card-gold">
+          <div class="card-title" style="font-size:.8rem;letter-spacing:.08em;">STAGE 02 — AI DEVELOPMENT</div>
+          <p class="card-text">The ASI develops several detailed variants of each proposal, modeling their systemic consequences across economic, ecological, social, and temporal dimensions. Impact assessments span decades. Multiple implementation pathways are generated. All variants are published in accessible language, with full transparency about modeling assumptions.</p>
+        </div>
+        <div class="card card-gold">
+          <div class="card-title" style="font-size:.8rem;letter-spacing:.08em;">STAGE 03 — PUBLIC REFINEMENT</div>
+          <p class="card-text">Published variants are open for global collaborative critique and improvement. Citizens worldwide comment, refine, challenge assumptions, and propose alternatives. Through iterative collective intelligence, proposals improve substantially before reaching vote. No expert monopoly on policy development.</p>
+        </div>
+        <div class="card card-gold">
+          <div class="card-title" style="font-size:.8rem;letter-spacing:.08em;">STAGE 04 — THRESHOLD APPROVAL</div>
+          <p class="card-text">Proposals advance to final vote only after achieving a defined threshold of community endorsement during the refinement phase. This filters frivolous proposals while ensuring serious initiatives receive full consideration — without imposing elite gatekeeping or institutional veto power.</p>
+        </div>
+        <div class="card card-gold">
+          <div class="card-title" style="font-size:.8rem;letter-spacing:.08em;">STAGE 05 — GLOBAL BINDING VOTE</div>
+          <p class="card-text">Every citizen holds one equal vote. Blockchain-verified cryptographic identity prevents fraud while preserving ballot secrecy. Results are tamper-proof and immediately transparent. Approved proposals become binding global law, implemented automatically through algorithmic administrative systems with zero bureaucratic delay.</p>
+        </div>
+        <div class="card card-gold">
+          <div class="card-title" style="font-size:.8rem;letter-spacing:.08em;">PARALLEL — ASI PROBLEM-FINDING</div>
+          <p class="card-text">Simultaneously and independently, the ASI continuously scans global data for emerging threats, systemic vulnerabilities, and optimization opportunities that citizens may not yet have identified. For each identified problem, ASI generates solution proposals that enter the same democratic process — ensuring no critical issue goes unaddressed due to insufficient citizen awareness.</p>
+        </div>
+      </div>
+
+      <h3>Why Parties and Professional Politicians Become Obsolete</h3>
+      <p>
+        Political parties exist to aggregate preferences and coordinate policy proposals within a 
+        system where citizens cannot participate continuously or directly. They solve a genuine 
+        coordination problem — but at an enormous cost: parties develop institutional interests 
+        of their own, capture by concentrated financial interests, ideological rigidity, 
+        short-term electoral calculations, and systematic corruption incentives.
+      </p>
+      <p>
+        When <strong>every citizen can submit proposals directly, refine them collaboratively, 
+        and vote on them in real time</strong> — with full AI analytical support — the coordination 
+        function of parties becomes redundant. There is nothing for parties to do. The ideology 
+        function also dissolves: citizens evaluate specific concrete proposals on their actual 
+        projected consequences, not abstract ideological platforms. The financing corruption 
+        function disappears: there are no legislators to purchase, because there are no legislators.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     POST-SCARCITY ECONOMY
+══════════════════════════════════════ -->
+<section id="economy" class="sec-alt grid-bg">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Economic Vision</div>
+      <h2 class="sec-title">The <span class="t-gold">Post-Scarcity</span> Economy</h2>
+      <div class="sec-line" style="background:linear-gradient(90deg,var(--accent-gold),#f0c060);"></div>
+      <p class="sec-intro">
+        For all of recorded history, scarcity has been the organizing principle of economic life — 
+        and therefore of political life, social stratification, and moral philosophy. 
+        The transition to post-scarcity does not merely change economic policy. 
+        It fundamentally alters <strong>what it means to be human in a civilizational context</strong>.
+      </p>
+    </div>
+    <div class="cb">
+      <h3>The Five Technologies of Abundance</h3>
+      <div class="g2" style="margin-top:1.5rem;">
+        <div class="card">
+          <span class="card-icon">⚡</span>
+          <div class="card-title">Nuclear Fusion Energy</div>
+          <p class="card-text">Commercial fusion power provides effectively unlimited clean energy at costs approaching zero marginal production — drawing on deuterium from seawater and lithium from Earth's crust. When energy approaches zero cost, all energy-intensive processes — manufacturing, desalination, atmospheric carbon removal, computation — approach zero cost as well. Fusion is the material foundation of post-scarcity.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🤖</span>
+          <div class="card-title">Advanced Robotics</div>
+          <p class="card-text">Robotic systems replicate and surpass human physical capabilities across all task categories. Agricultural robots plant, tend, and harvest. Construction robots fabricate buildings. Service robots maintain infrastructure. Medical robots perform surgery. When robots handle all physical labor, the cost of material goods approaches the cost of energy and raw materials only — both of which approach zero under fusion power.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🧬</span>
+          <div class="card-title">AI-Optimized Production</div>
+          <p class="card-text">Artificial intelligence coordinates global supply chains in real time, eliminating the waste, misallocation, and inefficiency that currently consume enormous fractions of total production. Research demonstrates AI logistics optimization reduces costs by 30–45% and waste by 60–80%. Under planetary-scale ASI coordination, these efficiencies compound across every sector simultaneously.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">⚗️</span>
+          <div class="card-title">Nanofabrication</div>
+          <p class="card-text">Molecular assembly systems construct products atom-by-atom from abundant raw feedstocks. When mature nanofabrication becomes available, manufacturing costs reduce to the cost of raw materials plus energy — both approaching zero. Any physically possible product becomes manufacturable at negligible expense, dissolving material scarcity at the most fundamental level.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🔬</span>
+          <div class="card-title">AI Materials Science</div>
+          <p class="card-text">Superintelligent materials science discovers abundant-element substitutes for historically scarce resources, eliminating geographic dependencies and geopolitical resource competition. AlphaFold demonstrated the potential: AI solved the protein folding problem that occupied thousands of researchers for decades. Applied across all materials science, this collapses the timeline from discovery to abundance.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">🛰️</span>
+          <div class="card-title">Space Resource Access</div>
+          <p class="card-text">Asteroid mining under ASI-optimized space logistics provides effectively unlimited material stocks for any element. The asteroid belt contains mineral wealth exceeding all terrestrial reserves by orders of magnitude. A multi-planetary civilization with access to space resources faces no long-term material constraint — only the engineering challenges of extraction and transport, both solvable by ASI.</p>
+        </div>
+      </div>
+
+      <h3>The Transformation of Work</h3>
+      <p>
+        When machines handle all economically necessary labor, <strong>work transforms from compulsion 
+        to vocation</strong>. Individuals no longer accept employment based on survival necessity — 
+        they pursue activities aligned with their genuine capabilities, interests, and values. 
+        The structural coercion that has characterized human labor markets since the first agricultural 
+        societies — work or starve — dissolves.
+      </p>
+      <p>
+        This is not the "end of work" in any meaningful sense. Humans are not passive creatures — 
+        evidence from every studied population confirms that individuals with guaranteed income 
+        continue to pursue productive activity, overwhelmingly gravitating toward intrinsically 
+        motivating domains: research, artistic creation, education, community service, entrepreneurship, 
+        exploration. What ends is <em>involuntary employment</em> — the forced acceptance of unsuitable 
+        work simply to survive.
+      </p>
+      <p>
+        The new economy rewards ideas rather than labor hours. A person who conceives of a 
+        compelling product can describe it to an AI system, which designs it, optimizes it, 
+        manages production through automated factories, and distributes it globally — while the 
+        originator receives compensation for their creative contribution. 
+        <strong>Human creativity becomes the scarce factor of production</strong>, 
+        the one thing machines cannot authentically generate.
+      </p>
+
+      <div class="quote-box">
+        <blockquote>
+          "The new professions are not baker, driver, or accountant — but Visionary, who generates ideas; 
+          Prompt Designer, who precisely formulates wishes for AI; and Shaper, who connects technologies 
+          with human values. UBI becomes the launchpad for a new civilization in which creativity, 
+          empathy, and philosophy replace compulsory labor."
+        </blockquote>
+        <cite>— Electric Technocracy: UBI and the Future of Humanity</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOUR PATHS
+══════════════════════════════════════ -->
+<section id="paths">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Civilizational Futures</div>
+      <h2 class="sec-title">The <span class="t-cyan">Four Paths</span> — A Bifurcation Point</h2>
+      <div class="sec-line"></div>
+      <p class="sec-intro">
+        The Technological Singularity is not a guarantee of paradise. It is a crossroads. 
+        The same Artificial Superintelligence that can cure cancer in seconds can also design 
+        the most perfect surveillance system ever conceived. The convergence of technologies 
+        humanity is approaching admits <strong>four fundamentally distinct civilizational trajectories</strong>. 
+        Only one leads to flourishing.
+      </p>
+    </div>
+    <div class="paths">
+      <div class="path-card path-A">
+        <div class="path-badge">PATH A — THE WORST CASE</div>
+        <div class="path-name">The Global Ghetto</div>
+        <p class="path-desc">
+          Material abundance coexists with <strong>cognitive stagnation and political fragmentation</strong>. 
+          Nation-states persist. Automation produces wealth that concentrates among the owners of technology. 
+          Digital platforms weaponize tribalism. Without meaningful work to structure identity, 
+          vast populations fall into anomic redundancy — trapped in a high-tech slum of algorithmic distraction, 
+          manufactured conflict, and manufactured consent. The Technological Singularity is managed by 
+          competing geopolitical blocs, each racing to achieve ASI supremacy regardless of safety constraints.
+        </p>
+        <div class="path-outcome">⚠ Outcome: Collapse through amplified tribalism · Existential vacuum · ASI arms race</div>
+      </div>
+      <div class="path-card path-B">
+        <div class="path-badge">PATH B — FRAGMENTED DIVERGENCE</div>
+        <div class="path-name">Hybrid Chaos — The Torn Planet</div>
+        <p class="path-desc">
+          Different jurisdictions adopt divergent strategies toward cognitive augmentation and AI integration. 
+          Some embrace BCIs, genetic enhancement, and transhumanist policies; others prohibit them 
+          on religious, nationalist, or ethical grounds. The primary axis of inequality shifts from 
+          <em>wealth to cognitive capacity</em>. Augmented and unaugmented populations develop 
+          incompatible worldviews, generating a cognitive schism that no existing international framework 
+          can bridge. Conflict becomes inevitable.
+        </p>
+        <div class="path-outcome">⚠ Outcome: Cognitive inequality · Civilizational schism · Perpetual conflict</div>
+      </div>
+      <div class="path-card path-C">
+        <div class="path-badge">PATH C — MANAGED STABILITY</div>
+        <div class="path-name">Domesticated Humanity</div>
+        <p class="path-desc">
+          Cognitive augmentation is universally adopted as an evolutionary necessity. 
+          Neural modulation reduces aggression and increases social cohesion. 
+          ASI governance achieves unprecedented stability and efficiency. 
+          However, the boundary between enhanced cooperation and engineered compliance 
+          becomes difficult to maintain. <em>Individual autonomy erodes</em> as collective 
+          cognitive systems optimize for social stability over personal freedom. 
+          Humanity survives — but as a managed species rather than a free one.
+        </p>
+        <div class="path-outcome">△ Outcome: Stable but potentially at the cost of authentic freedom</div>
+      </div>
+      <div class="path-card path-D">
+        <div class="path-badge">PATH D — THE ELECTRIC TECHNOCRACY</div>
+        <div class="path-name">Electronic Paradise</div>
+        <p class="path-desc">
+          The Technological Singularity is recognized as the <strong>common inheritance of humanity</strong>. 
+          Automation and AI are taxed and distributed as global wealth. Juridical Singularity provides 
+          the legal foundation for unified governance. Every human receives UBI — their rightful share 
+          of planetary productivity. Healthcare, education, and housing become universal rights. 
+          Creativity and exploration replace necessity as the foundation of human life. 
+          Wars vanish without competing states to wage them.
+        </p>
+        <div class="path-outcome">✦ Outcome: Peace · Equality · Abundance · Stability · Human Flourishing</div>
+      </div>
+    </div>
+    <div class="hl-box" style="margin-top:2.5rem;">
+      <p>
+        The decisive variable distinguishing these paths is not technological capacity — the technologies 
+        enabling all four scenarios are largely identical. The difference lies entirely in 
+        <strong>institutional design and political will</strong>: whether humanity deliberately structures 
+        its relationship with ASI to distribute benefits universally, or allows market and geopolitical 
+        dynamics to concentrate them among the few. Path D requires collective intention. 
+        The other paths are what happens by default.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     TIMELINE
+══════════════════════════════════════ -->
+<section id="timeline" class="sec-alt grid-bg">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Historical & Projected Trajectory</div>
+      <h2 class="sec-title">The <span class="t-cyan">Timeline</span> of Transition</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">1998</div>
+          <div class="tl-event">World Succession Deed 1400/98</div>
+          <p class="tl-desc">The international law treaty — <em>Staatensukzessionsurkunde 1400/98</em> — is concluded on 6 October in Saarlouis, Germany. Notarized by Manfred Mohr. Witnessed by NATO and UN representatives. The legal foundation for a unified world state is laid, irrevocably and without public knowledge.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2017–2019</div>
+          <div class="tl-event">Finland UBI Experiment</div>
+          <p class="tl-desc">Finland's two-year UBI pilot confirms the theoretical predictions: recipients report significantly higher psychological well-being, better health outcomes, and demonstrate <em>more</em> motivation to pursue education and work — not less. The fundamental argument against UBI ("it makes people lazy") is empirically refuted at population scale.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2021</div>
+          <div class="tl-event">AlphaFold — Proof of ASI-Accelerated Science</div>
+          <p class="tl-desc">DeepMind's AlphaFold solves the 50-year protein folding problem that occupied thousands of researchers worldwide. This single demonstration validates the core claim: <strong>ASI will compress decades of scientific discovery into years</strong>. Applied across all domains of knowledge simultaneously, this is civilizational transformation.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2024–2026</div>
+          <div class="tl-event">AGI Threshold Approaches</div>
+          <p class="tl-desc">Major AI systems begin demonstrating general reasoning, cross-domain problem-solving, and creative synthesis capabilities approaching Artificial General Intelligence. The window for establishing governance frameworks before AGI emerges narrows rapidly. The urgency of Juridical Singularity as legal precondition becomes undeniable.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2028–2035</div>
+          <div class="tl-event">Commercial Fusion Power</div>
+          <p class="tl-desc">First commercial nuclear fusion power plants come online, providing effectively unlimited clean energy. When energy approaches zero marginal cost, all energy-intensive processes — manufacturing, computation, desalination, transportation — approach zero marginal cost in turn. <strong>Material scarcity ceases to be a meaningful constraint</strong> for the first time in human history.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2030–2040</div>
+          <div class="tl-event">Full Automation of Physical Labor</div>
+          <p class="tl-desc">Robotic systems achieve functional generality across all physical task categories. Agricultural, construction, manufacturing, service, and care robots operate at human-or-superior performance levels at a fraction of human labor costs. The labor-income nexus — the foundational assumption of all political economy since the agricultural revolution — dissolves structurally.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">2035–2045</div>
+          <div class="tl-event">Longevity Escape Velocity</div>
+          <p class="tl-desc">Medical technology achieves LEV — life expectancy increases by more than one year per year of research progress. Aging begins to be treated as a disease rather than an inevitability. The implications for population structure, social organization, and the meaning of human time are civilizational in scope. Only Electric Technocracy's UBI makes this democratically available to all people, not only the wealthy.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-year">Post-2045</div>
+          <div class="tl-event">The Electronic Paradise</div>
+          <p class="tl-desc">The convergence of post-scarcity production, unified global governance, universal basic income, and ASI-supported democracy creates the conditions for what Electric Technocracy calls the <em>Electronic Paradise</em>: a planetary civilization where machines secure abundance, humans provide dreams, and ASI turns those dreams into reality. Not a utopia — but the first civilization genuinely structured around human flourishing rather than scarcity management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     GLOBAL PEACE & COOPERATION
+══════════════════════════════════════ -->
+<section id="peace">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Geopolitical Vision</div>
+      <h2 class="sec-title">Global <span class="t-cyan">Cooperation</span> — The End of Geopolitical Competition</h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="cb">
+      <p>
+        Wars between nations are not accidents of human nature — they are <strong>structural consequences 
+        of competing sovereignties managing scarce resources under conditions of mutual insecurity</strong>. 
+        Remove the competing sovereignties, replace scarcity with abundance, and the material conditions 
+        for interstate warfare disappear structurally. Electric Technocracy eliminates war 
+        not through deterrence or diplomacy, but through the removal of its root causes.
+      </p>
+
+      <h3>The Structural Elimination of War</h3>
+      <p>
+        No nation-states means no interstate conflict. No political parties means no ideological civil wars. 
+        No militaries means no arms races. This is not pacifism — it is structural logic. 
+        <strong>Interstate wars require distinct states that can fight each other.</strong> 
+        When sovereignty is unified globally, intracivilizational warfare becomes as obsolete as 
+        civil war within a stable democracy. The $2.4 trillion currently consumed by global military 
+        spending annually redirects toward productive uses — housing, healthcare, education, space exploration.
+      </p>
+
+      <h3>Climate, Pandemics, and Global Commons</h3>
+      <p>
+        The existential challenges of the 21st century — climate change, pandemic prevention, 
+        biodiversity collapse, nuclear proliferation — all share a common structure: 
+        they require coordinated global action, but free-rider dynamics under sovereignty competition 
+        make optimal coordination structurally impossible. Every nation has an incentive to let others 
+        bear the costs of climate mitigation while enjoying the benefits. COVID-19 demonstrated 
+        catastrophically how sovereign competition produces vaccine nationalism, information hoarding, 
+        and delayed response — at a cost of millions of lives.
+      </p>
+      <p>
+        Under Electric Technocracy, these coordination failures vanish by design. 
+        <strong>ASI systems optimize climate policy across planetary infrastructure simultaneously</strong> — 
+        transitioning energy systems, reforesting degraded lands, deploying carbon capture, 
+        adjusting agriculture — without the jurisdictional friction that currently paralyzes action. 
+        Pandemic surveillance operates through integrated global health monitoring with mandatory 
+        disclosure and coordinated response. The planetary commons are managed as the common heritage 
+        of all humanity, not competed over as strategic resources.
+      </p>
+
+      <h3>Space Exploration and Multi-Planetary Civilization</h3>
+      <p>
+        When the existential demands of terrestrial scarcity no longer consume civilizational resources, 
+        humanity is free to pursue its most expansive ambition: becoming a multi-planetary species. 
+        Space exploration under fragmented national programs has always been constrained by geopolitical 
+        competition, inconsistent funding, and duplicated effort. Under unified global coordination, 
+        the cumulative resources of all human civilization focus on a single shared project — 
+        accelerating the timeline to self-sustaining off-world colonies by decades.
+      </p>
+    </div>
+
+    <div class="g3" style="margin-top:2.5rem;">
+      <div class="card">
+        <span class="card-icon">☮️</span>
+        <div class="card-title">Structural Peace</div>
+        <p class="card-text">Interstate war becomes logically impossible without competing states. The annual $2.4 trillion military burden transforms into planetary infrastructure investment, space exploration, and medical research.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌍</span>
+        <div class="card-title">Climate Coordination</div>
+        <p class="card-text">Planetary-scale climate mitigation becomes achievable without free-rider dynamics. ASI optimizes all energy systems simultaneously. The coordination problem that has blocked climate action for decades dissolves structurally.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🏥</span>
+        <div class="card-title">Global Health</div>
+        <p class="card-text">Pandemic prevention through integrated global surveillance, coordinated vaccine production, and optimized distribution based on epidemiological impact rather than national priority. The failures of COVID-19 become impossible to repeat.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🚀</span>
+        <div class="card-title">Space Civilization</div>
+        <p class="card-text">Freed from terrestrial scarcity management, unified humanity focuses on multi-planetary expansion — a genuine long-term insurance against civilizational extinction, achievable decades earlier under coordinated planning.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔬</span>
+        <div class="card-title">Open Science</div>
+        <p class="card-text">Research becomes globally coordinated, open-access, and AI-accelerated. Duplication eliminates. Knowledge flows freely without national or corporate restriction. Scientific progress accelerates 2–3× relative to the fragmented current system.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">⚖️</span>
+        <div class="card-title">Global Justice</div>
+        <p class="card-text">The selective enforcement that characterizes current international human rights law — where powerful states criticize enemies while shielding allies — becomes impossible under unified governance and algorithmic enforcement transparency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FAQ / ACCORDION
+══════════════════════════════════════ -->
+<section id="faq" class="sec-alt grid-bg">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Critical Questions</div>
+      <h2 class="sec-title">Frequently Asked <span class="t-cyan">Questions</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="cb accordion">
+
+      <div class="acc-item">
+        <div class="acc-hd">
+          Doesn't guaranteed income make people lazy and unproductive?
+          <span class="acc-arrow">+</span>
+        </div>
+        <div class="acc-body">
+          <p>
+            Every major UBI pilot program — Finland (2017–2019), Dauphin Canada (1970s), 
+            the Alaska Permanent Fund (ongoing since 1982), and dozens of smaller-scale studies — 
+            consistently shows the opposite: recipients are <strong>healthier, happier, 
+            and more motivated</strong> to engage in meaningful work. The confusion stems from conflating 
+            <em>economic coercion</em> (working to avoid starvation) with <em>intrinsic motivation</em> 
+            (working because it is fulfilling). UBI eliminates the former without diminishing the latter. 
+            Psychological research on self-determination theory confirms that unconditional income 
+            redirects human effort toward intrinsically motivating activities — art, research, 
+            entrepreneurship, caregiving — rather than eliminating effort altogether.
+          </p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-hd">
+          Won't taxing corporations drive them to lower-tax regions?
+          <span class="acc-arrow">+</span>
+        </div>
+        <div class="acc-body">
+          <p>
+            This concern is valid for nationally implemented technology taxes under the current 
+            fragmented system — and it is precisely why Electric Technocracy requires 
+            <strong>globally unified governance</strong> as a precondition. When there is only 
+            one jurisdiction in the world, there are no lower-tax alternatives to flee to. 
+            Furthermore, robots and physical AI infrastructure — the primary taxable entities — 
+            cannot be relocated with the ease of financial capital. A factory is fixed to geography. 
+            A data center requires physical infrastructure. The Technology Tax targets measurable 
+            machine productivity rather than easily manipulated accounting metrics, 
+            making it inherently more enforcement-resistant than income or profit taxes.
+          </p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-hd">
+          What prevents the ASI from becoming a totalitarian control system?
+          <span class="acc-arrow">+</span>
+        </div>
+        <div class="acc-body">
+          <p>
+            Six interlocking safeguards: <strong>(1)</strong> Absolute human veto over all AI proposals 
+            — no recommendation becomes law without majority democratic approval. 
+            <strong>(2)</strong> Complete open-source transparency — all governing algorithms are 
+            publicly auditable. <strong>(3)</strong> An offline Watchdog AI monitoring the primary 
+            ASI continuously, with full independence from the monitored system. 
+            <strong>(4)</strong> Physical hardware kill-switches operable independently of software. 
+            <strong>(5)</strong> Deep value alignment through CIRL — the ASI's goals are 
+            intrinsically human-welfare-oriented at the architectural level, not merely 
+            constrained by external rules. <strong>(6)</strong> Rotating citizen ethics councils 
+            with authority to audit, modify, and override ASI operational parameters. 
+            Historical technocracies concentrated power in technical elites. 
+            Electric Technocracy distributes decision authority to all eight billion citizens simultaneously.
+          </p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-hd">
+          Is the World Succession Deed 1400/98 legally valid?
+          <span class="acc-arrow">+</span>
+        </div>
+        <div class="acc-body">
+          <p>
+            The World Succession Deed 1400/98 was concluded on 6 October 1998 in Saarlouis, Germany, 
+            notarized by notary Manfred Mohr, and involves references to existing NATO and UN treaty 
+            frameworks. Under the Vienna Convention on the Law of Treaties (VCLT), a treaty is any 
+            international agreement between states, regardless of how it is designated — 
+            including agreements arising from conduct conforming with treaty terms (Art. 35 VCLT). 
+            The legal theory underlying the Deed involves a chain of treaty relationships connecting 
+            the sold NATO property through the connected utility infrastructure network to progressively 
+            wider territorial jurisdictions. The Deed is documented in the ITU-UN-NATO Treaty Series. 
+            It has been irrevocably legally effective since 2000 under the buyer's legal analysis, 
+            and its irreversibility is specifically grounded in the nature of the obligation to 
+            continue operating the telecommunications network, which constitutes ongoing treaty conforming conduct.
+          </p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-hd">
+          What happens to cultural diversity and national identity?
+          <span class="acc-arrow">+</span>
+        </div>
+        <div class="acc-body">
+          <p>
+            Electric Technocracy explicitly protects cultural, linguistic, and social diversity — 
+            it abolishes <em>political</em> borders and <em>military</em> competition between states, 
+            not cultural identity. Local cultures, languages, and traditions not only persist but flourish: 
+            without the economic pressures of globalized labor competition and without the cultural 
+            homogenization imposed by commercial media optimization for the largest possible audience, 
+            human cultural production diversifies enormously. The UBI enables artists, musicians, 
+            storytellers, and cultural practitioners from every tradition to create without commercial 
+            survival pressure. <strong>Economic globalization homogenizes culture; 
+            post-economic freedom diversifies it.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-hd">
+          Can humanity meaningfully handle the freedom that post-scarcity provides?
+          <span class="acc-arrow">+</span>
+        </div>
+        <div class="acc-body">
+          <p>
+            This is the most honest and difficult question Electric Technocracy poses. 
+            When survival is guaranteed, meaning must be actively constructed rather than 
+            passively inherited from necessity. Some individuals will struggle with this transition — 
+            existential vacuum, loss of purpose, escapism into virtual environments. 
+            Electric Technocracy does not deny this risk. It argues, rather, that the institutions 
+            of the new civilization must be designed to support meaning-creation alongside 
+            material provision: accessible education, creative platforms, community architecture, 
+            philosophical and spiritual culture, the frontier challenges of scientific exploration 
+            and space colonization. <strong>The alternative — maintaining scarcity artificially 
+            to preserve the motivational structure it creates — is not a serious moral option</strong> 
+            when the technology to eliminate suffering already exists.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     RESOURCES
+══════════════════════════════════════ -->
+<section id="resources">
+  <div class="container">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Further Reading</div>
+      <h2 class="sec-title">Resources &amp; <span class="t-cyan">Links</span></h2>
+      <div class="sec-line"></div>
+      <p class="sec-intro">
+        Explore the complete body of research, documents, multimedia content, and community spaces 
+        associated with the Electric Technocracy project. All foundational texts are in the public domain.
+      </p>
+    </div>
+    <div class="res-grid">
+      <a href="https://singularity-news.github.io/wiki/" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">🌐</span>
+        <div><span>Electric Technocracy Wiki</span><span class="res-sub">singularity-news.github.io/wiki/</span></div>
+      </a>
+      <a href="https://singularity-news.github.io/wiki/electric-technocracy.html" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">📖</span>
+        <div><span>Main Concept Page</span><span class="res-sub">Complete Overview</span></div>
+      </a>
+      <a href="https://singularity-news.github.io/wiki/electric-paradise-blog.html" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">✍️</span>
+        <div><span>Electric Paradise Blog</span><span class="res-sub">ASI · BCI · Multi-Planetary</span></div>
+      </a>
+      <a href="https://singularity41.wordpress.com" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">📝</span>
+        <div><span>Singularity Blog</span><span class="res-sub">singularity41.wordpress.com</span></div>
+      </a>
+      <a href="https://archive.org/details/electric-technocracy" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">📚</span>
+        <div><span>Electric Technocracy eBook</span><span class="res-sub">archive.org · Free Download</span></div>
+      </a>
+      <a href="https://archive.org/details/ubi-universal-basic-income-and-the-electric-technocracy" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">💰</span>
+        <div><span>UBI: The Great Narrative</span><span class="res-sub">archive.org · PDF · Public Domain</span></div>
+      </a>
+      <a href="https://doi.org/10.5281/zenodo.18028339" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">🔬</span>
+        <div><span>Academic Paper: ET &amp; Global Governance</span><span class="res-sub">Zenodo · Peer-reviewed · DOI</span></div>
+      </a>
+      <a href="https://doi.org/10.5281/zenodo.18012036" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">📄</span>
+        <div><span>The Rise of the Electric Technocracy</span><span class="res-sub">Zenodo · Preprint · Public Domain</span></div>
+      </a>
+      <a href="http://world.rf.gd" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">⚖️</span>
+        <div><span>World Succession Deed 1400/98</span><span class="res-sub">WSD Information Website</span></div>
+      </a>
+      <a href="https://youtu.be/cbyME1y4m4o" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">▶️</span>
+        <div><span>UBI Video Explainer</span><span class="res-sub">YouTube · Full Presentation</span></div>
+      </a>
+      <a href="https://zenodo.org/communities/electric-technocracy" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">🤝</span>
+        <div><span>ET Pioneers Community</span><span class="res-sub">Zenodo · Research Community</span></div>
+      </a>
+      <a href="https://open.spotify.com/episode/1oTeGrNnXazJmkBdyH0Uhz" class="res-link" target="_blank" rel="noopener">
+        <span class="res-icon">🎙️</span>
+        <div><span>Podcast: UBI &amp; Electric Technocracy</span><span class="res-sub">Spotify</span></div>
+      </a>
+    </div>
+
+    <div class="tags" style="margin-top:2.5rem;justify-content:center;">
+      <span class="tag">#ElectricTechnocracy</span>
+      <span class="tag">#WorldSuccessionDeed</span>
+      <span class="tag">#UBI</span>
+      <span class="tag">#ASI</span>
+      <span class="tag">#DirectDigitalDemocracy</span>
+      <span class="tag-gold">#PostScarcity</span>
+      <span class="tag-gold">#JuridicalSingularity</span>
+      <span class="tag-gold">#ElectronicParadise</span>
+      <span class="tag">#TechnologicalSingularity</span>
+      <span class="tag">#ElektronischeTechnokratie</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MANIFESTO CLOSE
+══════════════════════════════════════ -->
+<div class="manifesto-band">
+  <p class="manifesto-text">
+    "Either ten trillion machines work for the profit of <span class="g">a few</span> —<br>
+    or ten trillion machines work for the freedom of <span class="c">all</span>.<br>
+    UBI, financed through AI and robotics, is the hinge on which the future turns."
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="ft-logo">ELECTRIC TECHNOCRACY</div>
+    <div class="ft-tagline">ASI · UBI · DDD · Juridical Singularity · Electronic Paradise · Est. 1998</div>
+    <div class="ft-links">
+      <a href="#top">↑ Top</a>
+      <a href="#what-is-et">What Is ET</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#ubi">UBI</a>
+      <a href="#juridical">Juridical Singularity</a>
+      <a href="#asi">ASI</a>
+      <a href="#ddd">DDD</a>
+      <a href="#economy">Economy</a>
+      <a href="#paths">Four Paths</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#resources">Resources</a>
+    </div>
+    <div class="ft-copy">
+      All Electric Technocracy texts are dedicated to the <strong>Public Domain (CC0 1.0)</strong> — 
+      freely usable, shareable, and modifiable by anyone, for any purpose, without restriction.
+      <br><span style="color:var(--text-muted);font-size:.72rem;margin-top:.4rem;display:block;">
+        This blog explores the conceptual framework of Electric Technocracy as developed by R. Goeritz (1998–2025) and Oliver Markus Reff (2025).
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<div class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ── Scroll Top Button ── */
+  var scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 400) scrollBtn.classList.add('vis');
+    else scrollBtn.classList.remove('vis');
+  }, {passive:true});
+
+  /* ── Accordion ── */
+  document.querySelectorAll('.acc-hd').forEach(function(hd){
+    hd.addEventListener('click', function(){
+      var item   = hd.parentElement;
+      var body   = item.querySelector('.acc-body');
+      var isOpen = hd.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.acc-hd').forEach(function(h){
+        h.classList.remove('open');
+        var b = h.parentElement.querySelector('.acc-body');
+        if(b) b.classList.remove('open');
+      });
+
+      // Open clicked if it wasn't open
+      if(!isOpen){
+        hd.classList.add('open');
+        if(body) body.classList.add('open');
+      }
+    });
+  });
+
+  /* ── Intersection Observer — fade in sections ── */
+  var fadeTargets = document.querySelectorAll(
+    '.card, .pillar, .path-card, .tl-card, .res-link, .ctr-box, .def-box, .hl-box, .quote-box'
+  );
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.style.opacity = '1';
+          e.target.style.transform = e.target.style.transform
+            ? e.target.style.transform.replace('translateY(20px)','translateY(0)')
+            : '';
+          io.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+
+    fadeTargets.forEach(function(el){
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      el.style.transform = (el.style.transform || '') + ' translateY(20px)';
+      io.observe(el);
+    });
+  } else {
+    fadeTargets.forEach(function(el){ el.style.opacity='1'; });
+  }
+
+  /* ── Click Ripple on Cards ── */
+  document.querySelectorAll('.card, .path-card, .pillar').forEach(function(card){
+    card.addEventListener('click', function(e){
+      var ripple = document.createElement('span');
+      var rect   = card.getBoundingClientRect();
+      var size   = Math.max(rect.width, rect.height);
+      ripple.style.cssText = [
+        'position:absolute',
+        'width:'+size+'px',
+        'height:'+size+'px',
+        'left:'+(e.clientX - rect.left - size/2)+'px',
+        'top:'+(e.clientY - rect.top - size/2)+'px',
+        'background:rgba(0,207,245,.08)',
+        'border-radius:50%',
+        'transform:scale(0)',
+        'animation:ripple-anim .6s ease forwards',
+        'pointer-events:none',
+        'z-index:1'
+      ].join(';');
+      card.style.position = 'relative';
+      card.style.overflow = 'hidden';
+      card.appendChild(ripple);
+      setTimeout(function(){ ripple.remove(); }, 700);
+    });
+  });
+
+  /* ── Ripple keyframe injection ── */
+  var style = document.createElement('style');
+  style.textContent = '@keyframes ripple-anim{to{transform:scale(2.5);opacity:0;}}';
+  document.head.appendChild(style);
+
+  /* ── Smooth scroll for anchor links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var target = document.querySelector(a.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+
+  /* ── Progress Bar Animation (if present) ── */
+  var progFills = document.querySelectorAll('.prog-fill');
+  if(progFills.length && 'IntersectionObserver' in window){
+    var progIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.style.width = e.target.getAttribute('data-width') || '80%';
+          progIO.unobserve(e.target);
+        }
+      });
+    },{threshold:0.3});
+    progFills.forEach(function(pf){ progIO.observe(pf); });
+  }
+
+  /* ── Ticker pause on hover ── */
+  var ticker = document.querySelector('.ticker-track');
+  if(ticker){
+    ticker.addEventListener('mouseenter',function(){ ticker.style.animationPlayState='paused'; });
+    ticker.addEventListener('mouseleave',function(){ ticker.style.animationPlayState='running'; });
+  }
+
+  /* ── Resource links: track hover direction ── */
+  document.querySelectorAll('.res-link').forEach(function(rl){
+    rl.addEventListener('mouseenter', function(){
+      rl.style.borderLeftColor = 'var(--accent-cyan)';
+    });
+    rl.addEventListener('mouseleave', function(){
+      rl.style.borderLeftColor = '';
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
